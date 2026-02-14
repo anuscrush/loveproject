@@ -39,7 +39,7 @@ button {
     width: 40px;
     height: 30px;
     font-size: 10px;
-    opacity: 0.2;   /* slightly visible */
+    opacity: 0.2;
 }
 </style>
 
@@ -55,15 +55,20 @@ button {
 <button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
 <!-- Hidden real NO button -->
-<a href="no.html">
-<button id="realNo">No 😅</button>
-</a>
+<button id="realNo" onclick="confirmNo()">No 😅</button>
 
 <script>
 function moveButton(){
-  var btn=document.getElementById("noBtn");
+  var btn = document.getElementById("noBtn");
   btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
   btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+function confirmNo(){
+  var result = confirm("Are you sure you want to say NO? 😢💔");
+  if(result){
+    window.location.href = "no.html";
+  }
 }
 </script>
 
