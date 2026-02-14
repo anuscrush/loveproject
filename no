@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>No 😜</title>
+<style>
+body {
+    text-align:center;
+    background:#f08080;
+    font-family: Arial;
+}
+</style>
+</head>
+<body>
+
+<h1>😜 Sare… but nuvvu naa MuddhuGummma vi 💖 don't leave me at any situations bujjulu you are my mine ❤️🤝 manam eddaram yeppudu kalise vundhammmm ok naaa
+Happy Valentine’s Day Bujjuluuu ❤️
+
+</h1>
+<p> 😜❤️</p>
+
+<a href="index.html">
+<button>Go Back</button>
+</a>
+
+</body>
+</html>
