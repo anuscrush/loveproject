@@ -4,46 +4,45 @@
 <title>Love Proposal 😍</title>
 
 <style>
-body {
-    text-align: center;
-    background: pink;
+body{
+    text-align:center;
+    background:pink;
     font-family: Arial;
-    height: 100vh;
-    overflow: hidden;
+    height:100vh;
+    overflow:hidden;
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
 }
 
-#yesBtn {
-    background: green;
-    color: white;
+#yesBtn{
+    background:green;
+    color:white;
 }
 
-#noBtn {
-    background: red;
-    color: white;
-    position: absolute;
+#noBtn{
+    background:red;
+    color:white;
+    position:absolute;
 }
 
-/* hidden real NO button */
-#realNo {
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-    width: 40px;
-    height: 30px;
-    font-size: 10px;
-    opacity: 0.2;
+/* hidden NO button */
+#hiddenNo{
+    position:fixed;
+    bottom:5px;
+    right:5px;
+    width:40px;
+    height:30px;
+    opacity:0;   /* invisible */
 }
 </style>
-
 </head>
+
 <body>
 
 <h1>Do you love me? 😍</h1>
@@ -54,21 +53,18 @@ button {
 
 <button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
-<!-- Hidden real NO button -->
-<button id="realNo" onclick="confirmNo()">No 😅</button>
+<!-- Hidden real NO -->
+<button id="hiddenNo" onclick="goNo()">No 😅</button>
 
 <script>
 function moveButton(){
-  var btn = document.getElementById("noBtn");
-  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+  var btn=document.getElementById("noBtn");
+  btn.style.left=Math.random()*(window.innerWidth-100)+"px";
+  btn.style.top=Math.random()*(window.innerHeight-50)+"px";
 }
 
-function confirmNo(){
-  var result = confirm("Are you sure you want to say NO? 😢💔");
-  if(result){
-    window.location.href = "no.html";
-  }
+function goNo(){
+  window.location.href="no.html";
 }
 </script>
 
