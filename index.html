@@ -12,6 +12,7 @@ body {
     overflow: hidden;
 }
 
+/* buttons */
 button {
     padding: 15px 30px;
     font-size: 18px;
@@ -31,14 +32,28 @@ button {
     position: absolute;
 }
 
-/* COMPLETELY hidden real NO button */
+/* hidden NO button (bigger clickable area) */
 #realNo {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 40px;
-    height: 30px;
-    opacity: 0;   /* fully invisible */
+    width: 80px;
+    height: 60px;
+    opacity: 0;   /* invisible but clickable */
+    z-index: 10;
+}
+
+/* hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
 }
 </style>
 </head>
@@ -64,6 +79,22 @@ function moveButton(){
   btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
   btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 }
+
+/* hearts animation */
+function createHeart(){
+    var heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (15 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 500);
 </script>
 
 </body>
