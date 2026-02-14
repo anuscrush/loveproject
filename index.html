@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Proposal 😍</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial;
+            color: white;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .yes-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no-btn {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+
+        /* hidden NO button */
+        .real-no {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            font-size: 10px;
+            opacity: 0; /* invisible */
+            width: 40px;
+            height: 30px;
+        }
+
+        /* floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+    </style>
+
+    <script>
+        // NO button run away
+        function moveButton() {
+            var btn = document.getElementById("noBtn");
+
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 50);
+
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
+        }
+
+        // hearts animation
+        function createHeart() {
+            var heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 700);
+
+        // play music on click
+        function playMusic() {
+            var music = document.getElementById("bgMusic");
+            music.play();
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Do you love me? 😍</h1>
+
+    <!-- YES BUTTON -->
+    <a href="/yes/" onclick="playMusic()">
+        <button class="yes-btn">Yes ❤️</button>
+    </a>
+
+    <!-- RUN AWAY NO BUTTON -->
+    <button id="noBtn" class="no-btn" onmouseover="moveButton()">
+        No 😜
+    </button>
+
+    <!-- SECRET HIDDEN NO BUTTON -->
+    <a href="/no/">
+        <button class="real-no">No 😅</button>
+    </a>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+</body>
+</html>
