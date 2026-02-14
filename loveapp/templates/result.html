@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Result</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 80px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            background-color: #ff4b5c;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff1e40;
+        }
+    </style>
+
+</head>
+<body>
+
+    {{ message|safe }}
+
+    <br><br>
+    <a href="/">
+        <button>Go Back 💌</button>
+    </a>
+
+</body>
+</html>
