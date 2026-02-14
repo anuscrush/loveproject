@@ -4,41 +4,41 @@
 <title>Love Proposal 😍</title>
 
 <style>
-body{
-    text-align:center;
-    background:pink;
+body {
+    text-align: center;
+    background: pink;
     font-family: Arial;
-    height:100vh;
-    overflow:hidden;
+    height: 100vh;
+    overflow: hidden;
 }
 
-button{
-    padding:15px 30px;
-    font-size:18px;
-    border-radius:10px;
-    border:none;
-    cursor:pointer;
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
 
-#yesBtn{
-    background:green;
-    color:white;
+#yesBtn {
+    background: green;
+    color: white;
 }
 
-#noBtn{
-    background:red;
-    color:white;
-    position:absolute;
+#noBtn {
+    background: red;
+    color: white;
+    position: absolute;
 }
 
-/* hidden NO button */
-#hiddenNo{
-    position:fixed;
-    bottom:5px;
-    right:5px;
-    width:40px;
-    height:30px;
-    opacity:0;   /* invisible */
+/* COMPLETELY hidden real NO button */
+#realNo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 30px;
+    opacity: 0;   /* fully invisible */
 }
 </style>
 </head>
@@ -54,17 +54,15 @@ button{
 <button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
 <!-- Hidden real NO -->
-<button id="hiddenNo" onclick="goNo()">No 😅</button>
+<a href="no.html">
+<button id="realNo"></button>
+</a>
 
 <script>
 function moveButton(){
-  var btn=document.getElementById("noBtn");
-  btn.style.left=Math.random()*(window.innerWidth-100)+"px";
-  btn.style.top=Math.random()*(window.innerHeight-50)+"px";
-}
-
-function goNo(){
-  window.location.href="no.html";
+  var btn = document.getElementById("noBtn");
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 }
 </script>
 
