@@ -6,9 +6,9 @@
     <style>
         body {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 80px;
             background: linear-gradient(to right, #ff758c, #ff7eb3);
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             color: white;
             overflow: hidden;
         }
@@ -17,11 +17,16 @@
             font-size: 40px;
         }
 
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
         button {
             padding: 12px 25px;
             font-size: 20px;
             margin: 10px;
-            border-radius: 10px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
         }
@@ -37,18 +42,6 @@
             position: absolute;
         }
 
-        /* hidden NO button */
-        .real-no {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            font-size: 10px;
-            opacity: 0; /* invisible */
-            width: 40px;
-            height: 30px;
-        }
-
-        /* floating hearts */
         .heart {
             position: fixed;
             bottom: -10px;
@@ -63,26 +56,20 @@
     </style>
 
     <script>
-        // NO button run away
         function moveButton() {
             var btn = document.getElementById("noBtn");
-
             var x = Math.random() * (window.innerWidth - 100);
             var y = Math.random() * (window.innerHeight - 50);
-
             btn.style.left = x + "px";
             btn.style.top = y + "px";
         }
 
-        // hearts animation
         function createHeart() {
             var heart = document.createElement("div");
             heart.className = "heart";
             heart.innerHTML = "❤️";
-
             heart.style.left = Math.random() * window.innerWidth + "px";
             heart.style.fontSize = (15 + Math.random() * 20) + "px";
-
             document.body.appendChild(heart);
 
             setTimeout(() => {
@@ -92,38 +79,60 @@
 
         setInterval(createHeart, 700);
 
-        // play music on click
-        function playMusic() {
-            var music = document.getElementById("bgMusic");
-            music.play();
+        function showYes() {
+            document.body.innerHTML = `
+                <h1>I love you toooo 😘❤️</h1>
+
+                <p>
+                You made my life beautiful 💕 Chitti Thalli 💖<br><br>
+
+                mana eddaram kalusthe yemaina chesesthammm ❤️<br><br>
+
+                Thank you for loving me, caring me and staying with me 🥺❤️<br><br>
+
+                I’m really lucky to have you in my life Chitti Thalli 💖<br><br>
+
+                Nuvvu natho unte life ni inka beautiful ga lead cheyyochu Bangaram 😇😘<br><br>
+
+                I love you sooooo much 😘❤️<br><br>
+
+                UmmmmaAaa neyyyyy 😘❤️😘❤️
+                </p>
+
+                <br>
+                <button onclick="location.reload()">Go Back 💌</button>
+            `;
+        }
+
+        function showNo() {
+            document.body.innerHTML = `
+                <h1>😜 Sare… but nuvvu naa MuddhuGummma vi 💖</h1>
+
+                <p>
+                don't leave me at any situations bujjulu ❤️<br><br>
+
+                you are my mine ❤️🤝<br><br>
+
+                manam eddaram yeppudu kalise vundhammmm ok naaa ❤️<br><br>
+
+                Happy Valentine’s Day Bujjuluuu ❤️
+                </p>
+
+                <br>
+                <button onclick="location.reload()">Go Back 💌</button>
+            `;
         }
     </script>
-
 </head>
 
 <body>
 
     <h1>Do you love me? 😍</h1>
 
-    <!-- YES BUTTON -->
-    <a href="/yes/" onclick="playMusic()">
-        <button class="yes-btn">Yes ❤️</button>
-    </a>
+    <button class="yes-btn" onclick="showYes()">Yes ❤️</button>
 
-    <!-- RUN AWAY NO BUTTON -->
-    <button id="noBtn" class="no-btn" onmouseover="moveButton()">
-        No 😜
-    </button>
-
-    <!-- SECRET HIDDEN NO BUTTON -->
-    <a href="/no/">
-        <button class="real-no">No 😅</button>
-    </a>
-
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    </audio>
+    <button id="noBtn" class="no-btn" onmouseover="moveButton()" onclick="showNo()">No 😜</button>
 
 </body>
 </html>
+
