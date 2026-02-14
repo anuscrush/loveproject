@@ -2,12 +2,16 @@
 <html>
 <head>
 <title>Love Proposal 😍</title>
+
 <style>
 body {
     text-align: center;
     background: pink;
     font-family: Arial;
+    height: 100vh;
+    overflow: hidden;
 }
+
 button {
     padding: 15px 30px;
     font-size: 18px;
@@ -15,18 +19,31 @@ button {
     border: none;
     cursor: pointer;
 }
+
 #yesBtn {
     background: green;
     color: white;
 }
+
 #noBtn {
     background: red;
     color: white;
     position: absolute;
 }
-</style>
-</head>
 
+/* hidden real NO button */
+#realNo {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 40px;
+    height: 30px;
+    font-size: 10px;
+    opacity: 0.2;   /* slightly visible */
+}
+</style>
+
+</head>
 <body>
 
 <h1>Do you love me? 😍</h1>
@@ -37,14 +54,18 @@ button {
 
 <button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
+<!-- Hidden real NO button -->
+<a href="no.html">
+<button id="realNo">No 😅</button>
+</a>
+
 <script>
 function moveButton(){
   var btn=document.getElementById("noBtn");
-  btn.style.left=Math.random()*500+"px";
-  btn.style.top=Math.random()*300+"px";
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 }
 </script>
 
 </body>
 </html>
-
